@@ -46,6 +46,7 @@ rcsid[] = "$Id: i_unix.c,v 1.5 1997/02/03 22:45:10 b1 Exp $";
 
 // Timer stuff. Experimental.
 #include <time.h>
+#include <errno.h>
 #include <signal.h>
 
 #include "z_zone.h"
@@ -163,7 +164,6 @@ myioctl
   int*	arg )
 {   
     int		rc;
-    extern int	errno;
     
     rc = ioctl(fd, command, arg);  
     if (rc < 0)
